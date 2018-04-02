@@ -70,21 +70,38 @@ public class EjecutableFinal {
         c.completarObjetoDepositos2(num_dia);
         c.listarJugadores2();
         
-        System.out.println("Completando objetos Retiros2*************");
+        System.out.println("Completando objetos Retiros3*************");
         c.completarObjetoRetiros3(num_dia);
         c.listarJugadores2();
 
-        System.out.println("Completando objetos depositos2*************");
+        System.out.println("Completando objetos depositos3*************");
         c.completarObjetoDepositos3(num_dia);
         c.listarJugadores2();
         
-        System.out.println("Completando objetos Retiros2*************");
+        System.out.println("Completando objetos Retiros4*************");
         c.completarObjetoRetiros4(num_dia);
         c.listarJugadores2();
 
-        System.out.println("Completando objetos depositos2*************");
+        System.out.println("Completando objetos depositos4*************");
         c.completarObjetoDepositos4(num_dia);
         c.listarJugadores2();
+        
+        System.out.println("Completando objetos Retiros5*************");
+        c.completarObjetoRetiros5(num_dia);
+        c.listarJugadores2();
+
+        System.out.println("Completando objetos depositos5*************");
+        c.completarObjetoDepositos5(num_dia);
+        c.listarJugadores2();
+       
+        System.out.println("Completando objetos Retiros6*************");
+        c.completarObjetoRetiros6(num_dia);
+        c.listarJugadores2();
+
+        System.out.println("Completando objetos depositos6*************");
+        c.completarObjetoDepositos6(num_dia);
+        c.listarJugadores2();
+        
         
 
         System.out.println("Finalizo la carga *********");
