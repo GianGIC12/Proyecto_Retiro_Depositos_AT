@@ -437,6 +437,303 @@ public class Consultas {
 
     }
 
+    public void completarObjetoRetiros2(int dia) throws SQLException {
+
+        Conexion objCon = new Conexion();
+        objCon.conectar();
+
+        int k = 0;
+
+        for (JugadorBean jugador : jugadores) {
+
+            int id_user = jugador.getIdUser();
+            List<D_RBean> lista = new ArrayList<>();
+
+            for (int i = dia - 10; i < dia - 5; i++) {
+
+                String fechita = fechas1[i];
+                float acum = 0;
+
+                D_RBean retiro = new D_RBean();
+                retiro.setFechaD(fechita);
+                retiro.setFechaR(fechita);
+
+                sql = "select idUser,substring(updated_at,1,10) as fechas,amount  from db_apuestatotal_prod.transaction_withdraw"
+                        + " where  status_backoffice='Paid' and "
+                        + "  substring(updated_at,1,10)= " + "'" + fechita + "'"
+                        + " and idUser= " + id_user;
+
+                k++;
+
+                System.out.println(k + " : " + " Id_User: " + id_user + " fecha: " + fechita);
+                PreparedStatement stm = objCon.getCon().prepareStatement(sql);
+                ResultSet rs = stm.executeQuery();
+
+                while (rs.next()) {
+                    System.out.println("**********************Retiros***********************");
+                    acum = acum + rs.getFloat(3);
+
+                }
+
+                retiro.setRetiros(acum);
+
+                jugador.getListita().add(retiro);
+
+            }
+
+        }
+
+        objCon.desconectar();
+
+    }
+
+    public void completarObjetoDepositos2(int dia) throws SQLException {
+
+        Conexion objCon = new Conexion();
+        objCon.conectar();
+
+        int k = 0;
+
+        for (JugadorBean jugador : jugadores) {
+
+            int id_wallet = jugador.getIdwallet();
+            List<D_RBean> lista = new ArrayList<>();
+
+            for (int i = dia - 10; i < dia - 5; i++) {
+
+                String fechita = fechas1[i];
+                float acum = 0;
+
+                D_RBean deposito = new D_RBean();
+                deposito.setFechaD(fechita);
+                deposito.setFechaR(fechita);
+
+                sql = "select idwallet,substring(updated_at,1,10) as fechas,amount from db_apuestatotal_prod.wallet_transaction "
+                        + " where status='2' and substring(updated_at,1,10)= " + "'" + fechita + "'"
+                        + " and idWallet= " + id_wallet;
+
+                k++;
+
+                System.out.println(k + " : " + " Id_Wallet: " + id_wallet + " fecha: " + fechita);
+                PreparedStatement stm = objCon.getCon().prepareStatement(sql);
+                ResultSet rs = stm.executeQuery();
+
+                while (rs.next()) {
+                    System.out.println("**************Depositos**************");
+                    acum = acum + rs.getFloat(3);
+
+                }
+
+                deposito.setDepositos(acum);
+
+                jugador.getListita().add(deposito);
+
+            }
+
+        }
+
+        objCon.desconectar();
+
+    }
+
+    public void completarObjetoRetiros3(int dia) throws SQLException {
+
+        Conexion objCon = new Conexion();
+        objCon.conectar();
+
+        int k = 0;
+
+        for (JugadorBean jugador : jugadores) {
+
+            int id_user = jugador.getIdUser();
+            List<D_RBean> lista = new ArrayList<>();
+
+            for (int i = dia - 15; i < dia - 10; i++) {
+
+                String fechita = fechas1[i];
+                float acum = 0;
+
+                D_RBean retiro = new D_RBean();
+                retiro.setFechaD(fechita);
+                retiro.setFechaR(fechita);
+
+                sql = "select idUser,substring(updated_at,1,10) as fechas,amount  from db_apuestatotal_prod.transaction_withdraw"
+                        + " where  status_backoffice='Paid' and "
+                        + "  substring(updated_at,1,10)= " + "'" + fechita + "'"
+                        + " and idUser= " + id_user;
+
+                k++;
+
+                System.out.println(k + " : " + " Id_User: " + id_user + " fecha: " + fechita);
+                PreparedStatement stm = objCon.getCon().prepareStatement(sql);
+                ResultSet rs = stm.executeQuery();
+
+                while (rs.next()) {
+                    System.out.println("**********************Retiros***********************");
+                    acum = acum + rs.getFloat(3);
+
+                }
+
+                retiro.setRetiros(acum);
+
+                jugador.getListita().add(retiro);
+
+            }
+
+        }
+
+        objCon.desconectar();
+
+    }
+
+    public void completarObjetoDepositos3(int dia) throws SQLException {
+
+        Conexion objCon = new Conexion();
+        objCon.conectar();
+
+        int k = 0;
+
+        for (JugadorBean jugador : jugadores) {
+
+            int id_wallet = jugador.getIdwallet();
+            List<D_RBean> lista = new ArrayList<>();
+
+            for (int i = dia - 15; i < dia - 10; i++) {
+
+                String fechita = fechas1[i];
+                float acum = 0;
+
+                D_RBean deposito = new D_RBean();
+                deposito.setFechaD(fechita);
+                deposito.setFechaR(fechita);
+
+                sql = "select idwallet,substring(updated_at,1,10) as fechas,amount from db_apuestatotal_prod.wallet_transaction "
+                        + " where status='2' and substring(updated_at,1,10)= " + "'" + fechita + "'"
+                        + " and idWallet= " + id_wallet;
+
+                k++;
+
+                System.out.println(k + " : " + " Id_Wallet: " + id_wallet + " fecha: " + fechita);
+                PreparedStatement stm = objCon.getCon().prepareStatement(sql);
+                ResultSet rs = stm.executeQuery();
+
+                while (rs.next()) {
+                    System.out.println("**************Depositos**************");
+                    acum = acum + rs.getFloat(3);
+
+                }
+
+                deposito.setDepositos(acum);
+
+                jugador.getListita().add(deposito);
+
+            }
+
+        }
+
+        objCon.desconectar();
+
+    }
+
+    public void completarObjetoRetiros4(int dia) throws SQLException {
+
+        Conexion objCon = new Conexion();
+        objCon.conectar();
+
+        int k = 0;
+
+        for (JugadorBean jugador : jugadores) {
+
+            int id_user = jugador.getIdUser();
+            List<D_RBean> lista = new ArrayList<>();
+
+            for (int i = dia - 20; i < dia - 15; i++) {
+
+                String fechita = fechas1[i];
+                float acum = 0;
+
+                D_RBean retiro = new D_RBean();
+                retiro.setFechaD(fechita);
+                retiro.setFechaR(fechita);
+
+                sql = "select idUser,substring(updated_at,1,10) as fechas,amount  from db_apuestatotal_prod.transaction_withdraw"
+                        + " where  status_backoffice='Paid' and "
+                        + "  substring(updated_at,1,10)= " + "'" + fechita + "'"
+                        + " and idUser= " + id_user;
+
+                k++;
+
+                System.out.println(k + " : " + " Id_User: " + id_user + " fecha: " + fechita);
+                PreparedStatement stm = objCon.getCon().prepareStatement(sql);
+                ResultSet rs = stm.executeQuery();
+
+                while (rs.next()) {
+                    System.out.println("**********************Retiros***********************");
+                    acum = acum + rs.getFloat(3);
+
+                }
+
+                retiro.setRetiros(acum);
+
+                jugador.getListita().add(retiro);
+
+            }
+
+        }
+
+        objCon.desconectar();
+
+    }
+
+    public void completarObjetoDepositos4(int dia) throws SQLException {
+
+        Conexion objCon = new Conexion();
+        objCon.conectar();
+
+        int k = 0;
+
+        for (JugadorBean jugador : jugadores) {
+
+            int id_wallet = jugador.getIdwallet();
+            List<D_RBean> lista = new ArrayList<>();
+
+            for (int i = dia - 20; i < dia - 15; i++) {
+
+                String fechita = fechas1[i];
+                float acum = 0;
+
+                D_RBean deposito = new D_RBean();
+                deposito.setFechaD(fechita);
+                deposito.setFechaR(fechita);
+
+                sql = "select idwallet,substring(updated_at,1,10) as fechas,amount from db_apuestatotal_prod.wallet_transaction "
+                        + " where status='2' and substring(updated_at,1,10)= " + "'" + fechita + "'"
+                        + " and idWallet= " + id_wallet;
+
+                k++;
+
+                System.out.println(k + " : " + " Id_Wallet: " + id_wallet + " fecha: " + fechita);
+                PreparedStatement stm = objCon.getCon().prepareStatement(sql);
+                ResultSet rs = stm.executeQuery();
+
+                while (rs.next()) {
+                    System.out.println("**************Depositos**************");
+                    acum = acum + rs.getFloat(3);
+
+                }
+
+                deposito.setDepositos(acum);
+
+                jugador.getListita().add(deposito);
+
+            }
+
+        }
+
+        objCon.desconectar();
+
+    }
+
     public List<Integer> getLista_retiros() {
         return lista_retiros;
     }
@@ -492,9 +789,5 @@ public class Consultas {
     public void setJugadores(List<JugadorBean> jugadores) {
         this.jugadores = jugadores;
     }
-    
-    
-    
-    
 
 }

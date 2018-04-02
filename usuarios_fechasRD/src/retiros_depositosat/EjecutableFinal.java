@@ -54,19 +54,44 @@ public class EjecutableFinal {
         c.completarDatos();
         c.listarjugadores();
 
-        System.out.println("Completando objetos Retiros*************");
+        System.out.println("Completando objetos Retiros1*************");
         c.completarObjetoRetiros1(num_dia);
         c.listarJugadores2();
 
-        System.out.println("Completando objetos depositos*************");
+        System.out.println("Completando objetos depositos1*************");
         c.completarObjetoDepositos1(num_dia);
         c.listarJugadores2();
+        
+        System.out.println("Completando objetos Retiros2*************");
+        c.completarObjetoRetiros2(num_dia);
+        c.listarJugadores2();
+
+        System.out.println("Completando objetos depositos2*************");
+        c.completarObjetoDepositos2(num_dia);
+        c.listarJugadores2();
+        
+        System.out.println("Completando objetos Retiros2*************");
+        c.completarObjetoRetiros3(num_dia);
+        c.listarJugadores2();
+
+        System.out.println("Completando objetos depositos2*************");
+        c.completarObjetoDepositos3(num_dia);
+        c.listarJugadores2();
+        
+        System.out.println("Completando objetos Retiros2*************");
+        c.completarObjetoRetiros4(num_dia);
+        c.listarJugadores2();
+
+        System.out.println("Completando objetos depositos2*************");
+        c.completarObjetoDepositos4(num_dia);
+        c.listarJugadores2();
+        
 
         System.out.println("Finalizo la carga *********");
         
         System.out.println("Exportando los datos*******");
         ExportarCSV e= new ExportarCSV();
-        e.exportarResultados(c.getJugadores());
+        e.exportarResultados1(c.getJugadores());
 
     }
 

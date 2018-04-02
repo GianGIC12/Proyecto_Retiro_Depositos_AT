@@ -22,9 +22,9 @@ public class ExportarCSV {
     public ExportarCSV() {
     }
 
-    public void exportarResultados(List<JugadorBean> jugadores) throws IOException {
+    public void exportarResultados1(List<JugadorBean> jugadores) throws IOException {
 
-        String outputFile = "C:/Users/user/Google Drive/Reporting_TB/bd_retiros_depositos.csv";
+        String outputFile = "C:/Users/user/Google Drive/Reporting_TB/bd_retiros_depositos1.csv";
 
         boolean alreadyExists = new File(outputFile).exists();
 
