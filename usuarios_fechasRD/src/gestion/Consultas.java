@@ -51,7 +51,7 @@ public class Consultas {
 
         String fecha = "";
 
-        fecha = fechas1[diaNum - 30];
+        fecha = fechas1[diaNum - 80];
 
         System.out.println("" + fecha);
 
